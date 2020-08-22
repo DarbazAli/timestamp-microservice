@@ -2,14 +2,42 @@ doctype html
 html
     include ./head.pug
     body
-
-        h1 #{message}
         ul
             li 
                 a(href="/") Home
 
             li
                 a(href="/api/timestamp/") API
+
+        h1 API Project: #{project} Microservies
+        p This project is an API Microserves that listenes in the following endpoint url:
+            pre 
+                code GET /api/timestamp/:date_string?
+
+        p And respondes back in the following format (if input is valid)
+            pre
+                code {"unix":1451001600000, "utc":"Fri, 25 Dec 2015 00:00:00 GMT"} <br />
+
+
+        h3 Test Cases
+        p UTC Format  
+            a(href="/api/timestamp/2015-12-25") 2015-12-25
+        p UNIX Format 
+            a(href="/api/timestamp/1451001600000") 1451001600000
+        p Empty input 
+            a(href="/api/timestamp/") /api/timestamp/
+        p Invalid input 
+            a(href="/api/timestamp/:98-z8w98zi88") 98-z8w98zi88
+
+
+
+
+
+
+
+
+
+        
 
 
         include ./footer.pug
